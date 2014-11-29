@@ -2,7 +2,7 @@ public class Position
 {
     private final byte x, y;
 
-    private Position(byte x, byte y)
+    public Position(byte x, byte y)
     {
         this.x = x;
         this.y = y;
