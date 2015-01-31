@@ -19,18 +19,21 @@ public abstract class Piece {
     @Override
     public String toString() {
 
-        StringBuilder sb = new StringBuilder(getColor() + "" + key());
+        return this.getColor() + "" + this.key();
 
-        return sb.toString();
     }
 
     public boolean isLegalMove(
             Position start,
             Position end,
-            Board board){
+            Board board) {
 
         Piece ppiece = board.getPiece(end);
 
-        return ppiece != null && ppiece.getColor() != this.getColor();
+        if (ppiece != null) {
+            return ppiece.getColor() != this.getColor();
+        } else {
+            return true;
+        }
     }
 }

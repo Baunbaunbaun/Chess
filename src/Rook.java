@@ -26,7 +26,6 @@ public class Rook extends Piece {
 
             movePositions = new Position[Math.abs(start.getY() - end.getY())];
 
-
             if (start.getY() < end.getY()) {
 
                 Byte yPlus = start.getY();
@@ -52,7 +51,7 @@ public class Rook extends Piece {
             return board.allPositionsAreEmpty(movePositions);
         }
 
-        //Rook moves in row
+//Rook moves in row
         if (start.getY() == end.getY()) {
             movePositions = new Position[Math.abs(start.getX() - end.getX())];
 

@@ -1,9 +1,7 @@
-public class Position
-{
+public class Position {
     private final byte x, y;
 
-    public Position(byte x, byte y)
-    {
+    public Position(byte x, byte y) {
         this.x = x;
         this.y = y;
     }
@@ -12,25 +10,22 @@ public class Position
     /**
      * @null if the representation is invalid.
      */
-    public static Position fromRepresentation(String representation)
-    {
-        if (representation.length() != 2)
-        {
+    public static Position fromRepresentation(String representation) {
+        if (representation.length() != 2) {
             return null;
         }
 
         char[] elements = representation.toCharArray();
 
-        boolean letterIsOutOfBounds = elements[0] < 'A' || elements [0] > 'H';
-        boolean numberIsOutOfBounds = elements[1] < '1' || elements [1] > '8';
+        boolean letterIsOutOfBounds = elements[0] < 'A' || elements[0] > 'H';
+        boolean numberIsOutOfBounds = elements[1] < '1' || elements[1] > '8';
 
-        if (letterIsOutOfBounds || numberIsOutOfBounds)
-        {
+        if (letterIsOutOfBounds || numberIsOutOfBounds) {
             return null;
         }
 
-        byte x = (byte)((elements[0]) - 65); //see ascii table :-)
-        byte y = (byte)((elements[1]) - 49);
+        byte x = (byte) ((elements[0]) - 65); //see ascii table :-) A=49 ; 1=65
+        byte y = (byte) ((elements[1]) - 49);
 
         return new Position(x, y);
     }
@@ -39,13 +34,12 @@ public class Position
      * @true if the x and y coordinates are equal.
      */
     @Override
-    public boolean equals(Object other){
-        if (!(other instanceof Position))
-        {
+    public boolean equals(Object other) {
+        if (!(other instanceof Position)) {
             return false;
         }
 
-        Position position = (Position)other;
+        Position position = (Position) other;
 
         return position.x == this.x && position.y == this.y;
     }
@@ -54,17 +48,16 @@ public class Position
      * x * 8 + y
      */
     @Override
-    public int hashCode()
-    {
+    public int hashCode() {
         return (this.x << 3) + this.y;
     }
 
-    public byte getX(){
+    public byte getX() {
 
         return this.x;
     }
 
-    public byte getY(){
+    public byte getY() {
 
         return this.y;
     }
